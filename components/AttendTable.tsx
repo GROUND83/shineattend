@@ -2,15 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { StudentForm } from "./StudentForm";
+
 import { Switch } from "@/components/ui/switch";
-import Link from "next/link";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import dayjs from "dayjs";
 
 interface Attend {
   _id: string;
+  studentName: string;
+  sutdentPhone: string;
   studentId: string;
   isAlrimtalkSend: string;
   createdAt: Date;
@@ -26,7 +28,7 @@ interface PaginatedResponse {
 
 export function AttendTable() {
   const [students, setStudents] = useState<Attend[]>([]);
-  const [open, setOpen] = useState(false);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalStudents, setTotalStudents] = useState(0);
@@ -63,7 +65,7 @@ export function AttendTable() {
         <h2 className="text-xl font-bold">학생 목록</h2>
         <div className="space-x-2">
           {/* <ExcelUploader onDataUploaded={handleExcelUpload} /> */}
-          <Button onClick={() => setOpen(true)}>학생 추가</Button>
+          {/* <Button onClick={() => setOpen(true)}>학생 추가</Button> */}
         </div>
       </div>
 
@@ -96,8 +98,8 @@ export function AttendTable() {
         <tbody>
           {students.map((s) => (
             <tr key={s._id}>
-              <td className="p-2 border">{s.studentId?.name}</td>
-              <td className="p-2 border">{s.studentId?.studentPhone}</td>
+              <td className="p-2 border">{s.studentName}</td>
+              <td className="p-2 border">{s.sutdentPhone}</td>
               <td className="p-2 border">
                 {dayjs(s.createdAt).format("YYYY-MM-DD HH시mm분")}
               </td>
