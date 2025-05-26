@@ -70,7 +70,7 @@ export default function AttendPage() {
   return (
     <div className="h-screen bg-neutral-200 grid grid-cols-2 gap-3  w-full">
       <div className="flex flex-col items-center justify-center">
-        <Image src={"/logo.png"} alt="학원로고" width={100} height={100} />
+        <Image src={"/shineLogo.svg"} alt="학원로고" width={200} height={100} />
         <h1 className="text-xl mt-6">샤iN학원 등원 시스템</h1>
       </div>
       <div className="bg-white">

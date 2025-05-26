@@ -58,7 +58,7 @@ export async function POST(req: Request) {
       { status: 404 }
     );
   }
-  const checkInTime = dayjs().format("HH분");
+  const checkInTime = dayjs().format("HH시 mm분");
   // 출석 기록
   const attendance = await Attendance.create({
     studentId: student._id,
