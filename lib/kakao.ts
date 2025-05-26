@@ -62,7 +62,7 @@ export async function sendKakaoMessage({
       },
       body: JSON.stringify({
         plusFriendId: "@샤인학원",
-        templateCode: "shine02",
+        templateCode: "shine03",
         messages: [
           {
             to: to,
