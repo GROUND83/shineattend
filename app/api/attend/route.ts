@@ -5,6 +5,11 @@ import { NextResponse } from "next/server";
 import { sendKakaoMessage } from "@/lib/kakao";
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 dayjs.locale("ko");
 //
 export async function GET(request: Request) {
@@ -58,7 +63,7 @@ export async function POST(req: Request) {
       { status: 404 }
     );
   }
-  const checkInTime = dayjs().format("HH시 mm분");
+  const checkInTime = dayjs().tz("Asia/Seoul").format("HH시 mm분");
   // 출석 기록
   const attendance = await Attendance.create({
     studentId: student._id,
