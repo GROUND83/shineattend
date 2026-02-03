@@ -17,6 +17,9 @@ const withPWA = require("next-pwa")({
 const nextConfig = withPWA({
   reactStrictMode: true,
   allowedDevOrigins: ["*", "localhost", "192.168.68.71"],
+  experimental: {
+    turbopack: {}, // 빈 객체를 설정하면 경고가 사라집니다.
+  },
 });
 
 export default nextConfig;
